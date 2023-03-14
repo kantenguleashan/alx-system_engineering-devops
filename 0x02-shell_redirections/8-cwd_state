@@ -1,2 +1,2 @@
-#!/bin/bash/
-ls -1a >ls_cwd_content
+#!/bin/bash
+ls -1a >ls-cwd_content
