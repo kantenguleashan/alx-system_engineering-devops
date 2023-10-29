@@ -1,0 +1,24 @@
+https://postimg.cc/DJ56QDB0
+
+A server is a computer system designed to serve requests from other computers (clients). In this context, it hosts the entire web infrastructure and responds to user requests.
+
+Role of the Domain Name: The domain name (foobar.com) is a human-readable name that points to your server's IP address. It makes it easier for users to access your website using a memorable name instead of an IP address.
+
+Type of DNS Record "www" in www.foobar.com: "www" is typically configured as a CNAME (Canonical Name) record. It's an alias for the root domain and points to the server's IP address.
+
+Role of the Web Server (Nginx): Nginx acts as a web server, handling HTTP requests from users' browsers. It can serve static files directly and forward dynamic requests to the application server.
+
+Role of the Application Server: The application server runs the server-side code for your website. It processes dynamic content requests, such as generating web pages based on user interactions or database queries.
+
+Role of the Database: The database (MySQL) stores and manages the website's data, like user information, content, and configurations. It's essential for data retrieval and storage.
+
+Communication with the User's Computer: The server communicates with the user's computer through the HTTP protocol. When a user enters www.foobar.com in their browser, the browser sends an HTTP request to your server, which responds with the requested web page.
+
+Issues with the Infrastructure:
+Single Point of Failure (SPOF): The entire infrastructure relies on a single server. If this server goes down or encounters issues, the entire website becomes inaccessible. To address this, you can consider redundancy or high-availability configurations.
+
+Downtime During Maintenance: When you need to perform maintenance, such as deploying new code or updates, you'll likely need to restart the web server. This may result in downtime, affecting user accessibility.
+
+Scalability Limitations: This infrastructure may struggle to handle a significant increase in incoming traffic. Scaling resources like web servers and databases can be challenging in this setup.
+
+While this design is simple and cost-effective, it may not be suitable for high-traffic or mission-critical websites. Implementing redundancy, load balancing.

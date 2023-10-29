@@ -1,0 +1,26 @@
+https://postimg.cc/Ff7ZfnVm
+
+Load Balancer with SSL Termination:
+
+Why it's added: Load balancers distribute traffic across multiple servers for improved availability and performance. SSL termination here offloads SSL/TLS encryption and decryption from the application servers, reducing their processing load.
+Issue: SSL termination at the load balancer can be problematic because it can expose unencrypted traffic within the internal network. Extra measures are needed to secure the internal communication.
+Three Servers (Server 1, 2, 3):
+
+Why they are added: These are application servers that host the website. Having multiple servers ensures redundancy and load distribution.
+Issue: If all servers are identical and one fails or has a vulnerability, it affects all servers simultaneously.
+Firewalls (Firewall 1, 2, 3):
+
+Why they are added: Firewalls provide security by filtering network traffic, allowing only authorized traffic to reach the servers.
+No issue here.
+Monitoring Clients (Client 1, 2, 3):
+
+Why they are added: Monitoring tools help in tracking the health and performance of the infrastructure, detect issues, and ensure high availability.
+How they collect data: These clients collect data by sending requests and receiving responses from various components (e.g., web servers, databases) and feeding that data into a monitoring service like Sumo Logic.
+SSL Certificate:
+
+Why it's added: To serve www.foobar.com over HTTPS, providing data encryption, authenticity, and integrity.
+No issue here.
+MySQL Server (Database):
+
+Why it's added: To store and manage the website's data.
+Issue: Having only one MySQL server capable of accepting writes is a single point of failure. Redundancy and failover mechanisms should be in place to ensure data availability and reliability.

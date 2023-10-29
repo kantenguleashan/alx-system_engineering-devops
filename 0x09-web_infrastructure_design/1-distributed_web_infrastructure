@@ -1,0 +1,26 @@
+https://postimg.cc/mzxG9m80
+
+This design provides a basic infrastructure for a website. However, for production use, additional components, redundancy, security measures, and monitoring systems should be implemented to ensure high availability, reliability, and security.
+
+Specifics and Explanations:
+Why Two Servers: Two servers are used for redundancy and load distribution. If one server goes down or needs maintenance, the other server can handle the traffic, reducing downtime.
+
+Why Nginx: Nginx serves as the web server to handle HTTP requests. It's efficient and can handle a large number of simultaneous connections.
+
+Why HAProxy Load Balancer: HAProxy serves as a load balancer to distribute incoming traffic across multiple application servers. The round-robin algorithm is used to ensure even distribution.
+
+Active-Active Setup: The load balancer enables an Active-Active setup where both application servers are actively processing requests. This configuration balances the traffic load and provides high availability.
+
+Database Primary-Replica (Master-Slave) Cluster: In the MySQL cluster, there is a Primary (Master) node and a Replica (Slave) node. The Primary node handles write operations (e.g., INSERT, UPDATE, DELETE), while the Replica node replicates data from the Primary and handles read operations.
+
+Difference Between Primary and Replica Nodes: The Primary node is responsible for writing data to the database, making it the authority for changes. The Replica node copies the data from the Primary and serves read requests. In regard to the application, this separation ensures that write operations are handled by the Primary, and read operations can be distributed across the Replicas.
+
+Issues with the Infrastructure:
+Single Points of Failure (SPOF):
+
+The load balancer (HAProxy) is a single point of failure. If it fails, incoming traffic won't be distributed properly. Implementing a redundant load balancer is essential.
+The database Primary node is also a potential SPOF. If it goes down, write operations won't be possible. Adding failover mechanisms is crucial.
+Security Issues:
+
+There's no mention of a firewall, which is important for controlling incoming and outgoing traffic and enhancing security.
+HTTPS (SSL/TLS) is not mentioned, but it should be enabled to encrypt data in transit and ensure secure connections.
