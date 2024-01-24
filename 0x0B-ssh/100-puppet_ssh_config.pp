@@ -9,6 +9,6 @@ content =>"
 	#SSH clieny config
 	host*
 	IdentifyFile ~/.ssh/school
-	PassowrdAuthication no
+	PasswordAuthication no
         ",
 }
