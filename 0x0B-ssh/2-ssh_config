@@ -1,0 +1,15 @@
+Include /etc/ssh_config.d/*.conf
+
+Host *
+#  ForwardAgent no
+#  ForwardX11 no
+#  Forwardx11Trusted yes
+   PasswordAuthentication no
+#  HostbasedAuthentication no
+#  GSSAPIAuthentication no
+#  GSSAPIDelagateCredentials no
+   IdentityFile ~/.ssh/school
+   SendEnv LANG LC_*
+   HashKnownhosts yes
+   GSSAPIAuthentication yes
+
