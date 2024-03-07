@@ -1,22 +1,18 @@
 #!/usr/bin/python3
-"""Contains top_ten function"""
+"""queries the Reddit API"""
 import requests
 
 
 def top_ten(subreddit):
-    """Print the titles of the 10 hottest posts on a given subreddit."""
-    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
-    headers = {
-        "User-Agent": "0x16-api_advanced:project:\
-v1.0.0 (by /u/firdaus_cartoon_jr)"
-    }
-    params = {
-        "limit": 10
-    }
-    response = requests.get(url, headers=headers, params=params,
-                            allow_redirects=False)
-    if response.status_code == 404:
-        print("None")
-        return
-    results = response.json().get("data")
-    [print(c.get("data").get("title")) for c in results.get("children")]
+    """returns first 10 posts"""
+    header = {"User-Agent": "Holberton"}
+    url = "https://www.reddit.com/r/" + subreddit + "/hot.json?limit=10"
+    r = requests.get(url, headers=header, allow_redirects=False)
+    if r.status_code == 200:
+        for i in r.json().get("data", None).get("children", None):
+            print(i.get("data", None).get("title", None))
+    else:
+        print(None)
+
+if __name__ == "__main__":
+    pass
